@@ -1,3 +1,4 @@
+export { createFrontUiHtml };
 const body = document.querySelector("body");
 const divCreate = document.createElement("div");
 const buttonCreate = document.createElement("button");
@@ -49,4 +50,20 @@ function createInput(div, type, name, inputName) {
   cloneInputCreate.setAttribute("name", name);
   cloneInputCreate.classList.add(inputName);
   return { cloneInputCreate };
+}
+
+function createFrontUiHtml() {
+  let parentDiv = createDivSection(body, "parentDiv");
+
+  let topDiv = createDivSection(parentDiv.cloneDivCreate, "topDiv");
+  let randomBtn = createButton(
+    topDiv.cloneDivCreate,
+    "Random Button",
+    "randomBtn",
+  );
+
+  let searchbarDiv = createDivSection(topDiv.cloneDivCreate, "searchbarDiv");
+
+  let bottomDiv = createDivSection(parentDiv.cloneDivCreate, "bottomDiv");
+  let testText = createP(bottomDiv.cloneDivCreate, "test", "testText");
 }
