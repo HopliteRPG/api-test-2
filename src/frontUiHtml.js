@@ -56,13 +56,29 @@ function createFrontUiHtml() {
   let parentDiv = createDivSection(body, "parentDiv");
 
   let topDiv = createDivSection(parentDiv.cloneDivCreate, "topDiv");
-  let randomBtn = createButton(
-    topDiv.cloneDivCreate,
-    "Random Button",
-    "randomBtn",
-  );
 
   let searchbarDiv = createDivSection(topDiv.cloneDivCreate, "searchbarDiv");
+
+  let searchbarForm = createForm(searchbarDiv.cloneDivCreate);
+
+  let searchbarInput = createInput(
+    searchbarForm.cloneFormCreate,
+    "input",
+    "searchbarInput",
+    "searchbarInput",
+  );
+
+  let searchBtn = createButton(
+    searchbarForm.cloneFormCreate,
+    "Search",
+    "searchBtn",
+  );
+
+  let randomBtn = createButton(
+    topDiv.cloneDivCreate,
+    "Random Image",
+    "randomBtn",
+  );
 
   let bottomDiv = createDivSection(parentDiv.cloneDivCreate, "bottomDiv");
   let testText = createP(bottomDiv.cloneDivCreate, "test", "testText");
