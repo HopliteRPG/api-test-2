@@ -13,6 +13,9 @@ function randomBtnCode() {
       })
       .then(function (response) {
         displayImg.src = response.data.images.original.url;
+      })
+      .catch((e) => {
+        console.log(e);
       });
   });
 }
