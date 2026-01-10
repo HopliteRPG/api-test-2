@@ -81,5 +81,5 @@ function createFrontUiHtml() {
   );
 
   let bottomDiv = createDivSection(parentDiv.cloneDivCreate, "bottomDiv");
-  let testText = createP(bottomDiv.cloneDivCreate, "test", "testText");
+  let bottomDivImage = createImage(bottomDiv.cloneDivCreate, "displayImg");
 }
