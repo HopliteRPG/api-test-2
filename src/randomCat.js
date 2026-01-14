@@ -11,5 +11,8 @@ function catOnStartUp() {
       console.log(displayImg);
       console.log(response.data.images.original.url);
       displayImg.src = response.data.images.original.url;
+    })
+    .catch((error) => {
+      console.error("Error fetching the image:", error);
     });
 }
