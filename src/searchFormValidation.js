@@ -8,25 +8,38 @@ function searchForGif() {
 
   const searchBtn = document.querySelector(".searchBtn");
 
+  const validSearchRegEx = /^[A-Za-z ]+$/;
+
+  const isValidSearch = () => {
+    let searchBarValue = searchBar.value;
+    const validity =
+      searchBarValue.length !== 0 && validSearchRegEx.test(searchBarValue);
+    return validity;
+  };
+
   searchBtn.addEventListener("click", (event) => {
     event.preventDefault();
     const img = document.querySelector(".displayImg");
 
-    let encodedSearchTerm = encodeURIComponent(searchBar.value);
-    let searchableUrl = `${url}${encodedSearchTerm}`;
-    console.log(searchBar.value);
-    console.log(searchableUrl);
+    if (isValidSearch() === true) {
+      let encodedSearchTerm = encodeURIComponent(searchBar.value);
+      let searchableUrl = `${url}${encodedSearchTerm}`;
+      console.log(searchBar.value);
+      console.log(searchableUrl);
 
-    fetch(searchableUrl)
-      .then(function (response) {
-        return response.clone().json();
-      })
-      .then(function (response) {
-        img.src = response.data.images.original.url;
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error("Error fetching the image:", error);
-      });
+      fetch(searchableUrl)
+        .then(function (response) {
+          return response.clone().json();
+        })
+        .then(function (response) {
+          img.src = response.data.images.original.url;
+          console.log(response);
+        })
+        .catch((error) => {
+          console.error("Error fetching the image:", error);
+        });
+    } else {
+      alert("Type a word with only letters from A-Z");
+    }
   });
 }
